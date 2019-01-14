@@ -1,0 +1,8 @@
+espeak 'of course'
+espeak 'right away'
+espeak 'I will get it done'
+espeak 'Already on it'
+espeak 'You got it'
+espeak 'Consider it done'
+
+
