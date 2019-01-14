@@ -15,7 +15,7 @@ def recognize():
             text = r.recognize_google(audio)
             print(text)
             return text
-        except:
+        except sr.UnknownValueError:
             os.system("espeak 'Sorry, I didnt get that Can you repeat it?")
             question()
 
@@ -32,14 +32,14 @@ def question():
     os.system("espeak 'Listening'")
     time.sleep(0.5)
     answer = recognize()
-    return answer
+    return str(answer)
 
 
 def website():
     os.system("espeak 'What would you like to search'")
     search = question()
     generalresponse()
-    wb.open_new_tab('https://www.bing.com/search?q=%s' % search)
+    wb.open_new_tab("https://www.google.ca/search?q=" + (str(search)))
 
 
 def functions():
@@ -83,7 +83,7 @@ def infopanel():
 
 def startinterface():
     class Window(Frame):
-        def __init__(self, master = None):
+        def __init__(self, master=None):
             Frame.__init__(self, master)
             self.master = master
             self.init_window()
