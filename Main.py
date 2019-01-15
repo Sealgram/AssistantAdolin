@@ -3,6 +3,7 @@ import random
 import os
 import webbrowser as wb
 import speech_recognition as sr
+import subprocess
 from tkinter import *
 
 
@@ -11,13 +12,15 @@ def recognize():
     mic = sr.Microphone()
     with mic as source:
         try:
+            os.system("espeak 'Listening'")
             audio = r.listen(source)
             text = r.recognize_google(audio)
             print(text)
             return text
         except sr.UnknownValueError:
-            os.system("espeak 'Sorry, I didnt get that Can you repeat it?")
-            question()
+            os.system("espeak 'Sorry, I didnt get that Can you repeat it?'")
+        except sr.RequestError:
+            os.system("espeak 'Sorry, I cannot get an internet connection. Please connect to the internet'")
 
 
 def greeting():
@@ -28,24 +31,30 @@ def greeting():
     os.system("espeak 'Click the 'ask' button to give me a command'")
 
 
-def question():
-    os.system("espeak 'Listening'")
-    time.sleep(0.5)
-    answer = recognize()
-    return str(answer)
-
-
 def website():
     os.system("espeak 'What would you like to search'")
-    search = question()
+    search = recognize()
     generalresponse()
     wb.open_new_tab("https://www.google.ca/search?q=" + (str(search)))
 
 
+def program():
+    os.system("espeak 'What program would you like to open?'")
+    program = recognize()
+    generalresponse()
+
+
+
 def functions():
-    answer = question()
+    answer = recognize()
     if answer.lower() == 'search web':
         website()
+    if answer.lower() == 'search the web':
+        website()
+    if answer.lower() == 'web search':
+        website()
+    if answer.lower() == 'Open Program':
+        program()
 
 
 def generalresponse():
@@ -64,7 +73,7 @@ def infopanel():
             self.init_window()
 
         def init_window(self):
-            self.master.title("Codsworth")
+            self.master.title("Adolin")
             self.pack(fill=BOTH, expand=1)
             self.configure(background="gray33")
             button = Button(self, text="Possible Commands:", height=3, width=20)
