@@ -10,5 +10,4 @@ brew install swig
 pip install SpeechRecognition
 pip install PyAudio
 pip install webbrowser
-pip install pocketsphinx
 ```
