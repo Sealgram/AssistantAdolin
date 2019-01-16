@@ -38,25 +38,38 @@ def website():
     wb.open_new_tab("https://www.google.ca/search?q=" + (str(search)))
 
 
+def identifyprogram(choiceprogram):
+    programs = [
+        'VLC', 'Illustrator', 'Photoshop', 'Premiere', 'Blender', 'Books', 'Calculator', 'Calendar', 'Chess',
+        'Contacts', 'Dictionary', 'Discord', 'Facetime', 'Flappy Golf', 'Google Chrome', 'Imovie', 'Mail',
+        'Malwarebytes', 'Messages', 'Minecraft', 'Notes', 'Octagon', 'Photo Booth', 'PyCharm', 'Quicktime Player',
+        'Reminders', 'Spotify', 'Steam', 'System Preferences', 'TextEdit', 'You Torrent', 'Twitch'
+    ]
+    try:
+        index = programs.index(choiceprogram.title())
+        return index
+    except ValueError:
+        os.system("espeak 'Sorry, I cannot open that program")
+
+
 def program():
     os.system("espeak 'What program would you like to open?'")
-    optionprogram = recognize()
+    choiceprogram = recognize()
     generalresponse()
+    programchoice = identifyprogram(choiceprogram)
     paths = open('applications.txt', 'r')
-    programs = paths.readlines()
-    if optionprogram == 'Chrome':
-        subprocess.Popen(programs[14].split(","))
+    pathsread = paths.readlines()
+    subprocess.Popen(["/usr/bin/open", "-W", "-n", "-a", str(pathsread[programchoice].strip())])
 
 
 def functions():
     answer = recognize()
     searchweb = ['search web', 'web search', 'web', 'search', 'google', 'search the web']
     openprogram = ['open program', 'open', 'program open', 'open a program', 'open an app', 'app open']
-    if answer.lower() in searchweb:
+    if str(answer.lower()) in searchweb:
         website()
-    elif answer.lower() in openprogram:
+    elif str(answer.lower()) in openprogram:
         program()
-
 
 
 def generalresponse():
