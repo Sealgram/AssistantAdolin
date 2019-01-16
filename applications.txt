@@ -1,0 +1,32 @@
+/usr/bin/open, "-W", "-n", "-a", "/Applications/VLC.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Adobe Illustrator CC 2019/Adobe Illustrator.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Adobe Photoshop CC 2019/Adobe Photoshop CC 2019.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Adobe Premiere Pro CC 2019/Adobe Premiere Pro CC 2019.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/blender.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Books.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Calculator.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Calendar.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Chess.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Contacts.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Dictionary.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Discord.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/FaceTime.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Flappy Golf 2.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Google Chrome.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/iMovie.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Mail.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Malwarebytes.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Messages.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Minecraft.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Notes.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Octagon.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Photo Booth.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/PyCharm CE.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/QuickTime Player.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Reminders.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Spotify.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Steam.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/System Preferences.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/TextEdit.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/uTorrent.app
+/usr/bin/open, "-W", "-n", "-a", "/Applications/Twitch.app

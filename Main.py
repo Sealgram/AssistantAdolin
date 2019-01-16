@@ -16,7 +16,7 @@ def recognize():
             audio = r.listen(source)
             text = r.recognize_google(audio)
             print(text)
-            return text
+            return str(text)
         except sr.UnknownValueError:
             os.system("espeak 'Sorry, I didnt get that Can you repeat it?'")
         except sr.RequestError:
@@ -40,21 +40,23 @@ def website():
 
 def program():
     os.system("espeak 'What program would you like to open?'")
-    program = recognize()
+    optionprogram = recognize()
     generalresponse()
-
+    paths = open('applications.txt', 'r')
+    programs = paths.readlines()
+    if optionprogram == 'Chrome':
+        subprocess.Popen(programs[14].split(","))
 
 
 def functions():
     answer = recognize()
-    if answer.lower() == 'search web':
+    searchweb = ['search web', 'web search', 'web', 'search', 'google', 'search the web']
+    openprogram = ['open program', 'open', 'program open', 'open a program', 'open an app', 'app open']
+    if answer.lower() in searchweb:
         website()
-    if answer.lower() == 'search the web':
-        website()
-    if answer.lower() == 'web search':
-        website()
-    if answer.lower() == 'Open Program':
+    elif answer.lower() in openprogram:
         program()
+
 
 
 def generalresponse():
@@ -152,5 +154,5 @@ def maininterface():
     root.mainloop()
 
 
-startinterface()
+#startinterface()
 maininterface()
