@@ -11,6 +11,8 @@
       <w>facetime</w>
       <w>flappy</w>
       <w>generalresponse</w>
+      <w>generalsayings</w>
+      <w>identifyprogram</w>
       <w>illistrator</w>
       <w>imgloop</w>
       <w>imovie</w>
@@ -19,17 +21,23 @@
       <w>maininterface</w>
       <w>malwarebytes</w>
       <w>minecraft</w>
+      <w>namebutton</w>
+      <w>namedoc</w>
+      <w>namerecord</w>
+      <w>noname</w>
       <w>openprogram</w>
       <w>pathsread</w>
       <w>photoshop</w>
       <w>programchoice</w>
       <w>quicktime</w>
       <w>quitbutton</w>
+      <w>recordname</w>
       <w>responsefinal</w>
       <w>searchweb</w>
       <w>spotify</w>
       <w>startinterface</w>
       <w>togglebutton</w>
+      <w>weathercalls</w>
     </words>
   </dictionary>
 </component>
