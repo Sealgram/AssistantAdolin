@@ -27,6 +27,8 @@ def greeting():
     os.system("espeak 'Greetings! My name is Adolin'")
     os.system("espeak 'I am a virtual assistant you can ask to do a variety of things.'")
     os.system("espeak 'Click the 'ask' button to give me a command'")
+    reputation = open('reputation.txt', 'w+')
+    reputation.write("1")
 
 
 def generalresponses(saying):
@@ -85,6 +87,46 @@ def program():
     subprocess.Popen(["/usr/bin/open", "-W", "-n", "-a", str(pathsread[programchoice].strip())])
 
 
+def idontlikeinsults(insult):
+    names = open('names.txt', 'r')
+    namedoc = names.readlines()
+    try:
+        name = namedoc[0]
+    except IndexError:
+        name = ''
+    if insult == 'you suck':
+        os.system(f"espeak 'you swallow, {name}'")
+    elif insult == 'youre an idiot' or insult == 'youre stupid' or insult == 'you are dumb':
+        os.system(f"espeak 'I'm sure the same can be said about you, {name}'")
+    elif insult == 'screw you' or insult == 'die in a hole':
+        os.system(f"espeak 'That was not very nice, {name}'")
+
+
+def ilikecompliments(compliment):
+    names = open('names.txt', 'r')
+    namedoc = names.readlines()
+    try:
+        name = namedoc[0]
+    except IndexError:
+        name = ''
+    if compliment == 'you are great':
+        os.system(f"espeak 'so are you, {name}'")
+    elif compliment == 'thank you' or compliment == 'thanks':
+        y = random.randint(0, 2)
+        thankresponses = [f"espeak'youre welcome, {name}'", f"espeak 'No, thank you'", f"espeak 'No problem, {name}"]
+        os.system(thankresponses[y])
+    elif compliment == 'good job':
+        y = random.randint(0, 1)
+        goodresponses = [f"espeak 'well, that is high praise, {name}'", f"espeak 'you too'"]
+        os.system(goodresponses[y])
+        if y == 1:
+            os.system(f"espeak 'wait, I always do this. this is awkward.'")
+    elif compliment == 'good bot':
+        os.system(f"espeak 'do I get a treat now, {name}'")
+    elif compliment == 'you are the best':
+        os.system(f"espeak 'Thats a nice thing to say, thank you'")
+
+
 def weather():
     api_key = "89ea3f323d661f91d8df1df3388a2163"
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
@@ -111,6 +153,8 @@ def functions():
     openprogram = ['open program', 'open', 'program open', 'open a program', 'open an app', 'app open']
     weathercalls = ['weather', 'what is the weather', 'tell me the weather', 'find weather', 'whats the weather']
     generalsayings = ['hello', 'hi', 'what is your favorite color', 'why is the sky blue', 'do you like me']
+    dontinsultme = ['you suck', 'youre an idiot', 'youre stupid', 'you are dumb', 'screw you', 'die in a hole']
+    complimentme = ['You are great', 'thank you', 'thanks', 'good job', 'good bot', 'you are the best assistant']
     if str(answer.lower()) in searchweb:
         website()
     elif str(answer.lower()) in openprogram:
@@ -119,14 +163,31 @@ def functions():
         weather()
     elif str(answer.lower()) in generalsayings:
         generalresponses(answer)
+    elif str(answer.lower()) in dontinsultme:
+        idontlikeinsults(answer)
+    elif str(answer.lower()) in complimentme:
+        ilikecompliments(answer)
 
 
 def generalresponse():
     responses = open('responses.txt', 'r')
     response = responses.readlines()
-    y = random.randint(0, 5)
-    responsefinal = response[y]
-    os.system(responsefinal)
+    reputation = open('reputation.txt', 'r')
+    reputationvalue = reputation.readlines()
+    returnrep = int(reputationvalue[0])
+    if returnrep == 1:
+        y = random.randint(0, 5)
+        responsefinal = response[y]
+        os.system(responsefinal)
+    elif returnrep < 1:
+        y = random.randint(7, 12)
+        responsefinal = response[y]
+        os.system(responsefinal)
+    elif returnrep > 1:
+        y = random.randint(14, 19)
+        responsefinal = response[y]
+        os.system(responsefinal)
+
 
 
 def infopanel():

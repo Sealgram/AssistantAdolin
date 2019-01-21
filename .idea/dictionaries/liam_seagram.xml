@@ -7,12 +7,16 @@
       <w>closewindow</w>
       <w>codsworth</w>
       <w>didnt</w>
+      <w>dontinsultme</w>
       <w>espeak</w>
       <w>facetime</w>
       <w>flappy</w>
       <w>generalresponse</w>
       <w>generalsayings</w>
+      <w>goodresponses</w>
       <w>identifyprogram</w>
+      <w>idontlikeinsults</w>
+      <w>ilikecompliments</w>
       <w>illistrator</w>
       <w>imgloop</w>
       <w>imovie</w>
@@ -32,12 +36,17 @@
       <w>quicktime</w>
       <w>quitbutton</w>
       <w>recordname</w>
+      <w>reputationvalue</w>
       <w>responsefinal</w>
+      <w>returnrep</w>
       <w>searchweb</w>
       <w>spotify</w>
       <w>startinterface</w>
+      <w>thankresponses</w>
+      <w>thats</w>
       <w>togglebutton</w>
       <w>weathercalls</w>
+      <w>youre</w>
     </words>
   </dictionary>
 </component>
