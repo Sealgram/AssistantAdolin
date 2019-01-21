@@ -28,7 +28,7 @@ def greeting():
     os.system("espeak 'I am a virtual assistant you can ask to do a variety of things.'")
     os.system("espeak 'Click the 'ask' button to give me a command'")
     reputation = open('reputation.txt', 'w+')
-    reputation.write("1")
+    reputation.write("10")
 
 
 def generalresponses(saying):
@@ -95,20 +95,21 @@ def idontlikeinsults(insult):
     except IndexError:
         name = ''
     try:
-        reputation = open('reputation.txt', 'w+')
+        reputation = open('reputation.txt', 'r')
         rep = reputation.readlines()
-        currentrep = int(rep[0])
+        currentrep = int(rep[0].strip())
     except IndexError:
-        currentrep = 1
+        currentrep = 10
     if insult == 'you suck':
         os.system(f"espeak 'you swallow, {name}'")
         currentrep -= 1
-    elif insult == 'youre an idiot' or insult == 'youre stupid' or insult == 'you are dumb':
-        os.system(f"espeak 'I'm sure the same can be said about you, {name}'")
+    elif insult == 'you are an idiot' or insult == 'you are stupid' or insult == 'you are dumb':
+        os.system(f"espeak 'Im sure the same can be said about you, {name}'")
         currentrep -= 1
     elif insult == 'screw you' or insult == 'die in a hole':
         os.system(f"espeak 'That was not very nice, {name}'")
         currentrep -= 1
+    reputation = open('reputation.txt', 'w')
     reputation.write(str(currentrep))
 
 
@@ -120,11 +121,11 @@ def ilikecompliments(compliment):
     except IndexError:
         name = ''
     try:
-        reputation = open('reputation.txt', 'w+')
+        reputation = open('reputation.txt', 'r')
         rep = reputation.readlines()
-        currentrep = int(rep[0])
+        currentrep = int(rep[0].strip())
     except IndexError:
-        currentrep = 1
+        currentrep = 10
     if compliment == 'you are great':
         os.system(f"espeak 'so are you, {name}'")
         currentrep += 1
@@ -137,15 +138,18 @@ def ilikecompliments(compliment):
         y = random.randint(0, 1)
         goodresponses = [f"espeak 'well, that is high praise, {name}'", f"espeak 'you too'"]
         os.system(goodresponses[y])
+        currentrep += 1
         if y == 1:
             os.system(f"espeak 'wait, I always do this. this is awkward.'")
-        currentrep += 1
+            currentrep += 1
     elif compliment == 'good bot':
         os.system(f"espeak 'do I get a treat now, {name}'")
         currentrep += 1
     elif compliment == 'you are the best':
         os.system(f"espeak 'Thats a nice thing to say, thank you'")
         currentrep += 1
+    reputation = open('reputation.txt', 'w')
+    reputation.write(str(currentrep))
 
 
 def weather():
@@ -174,8 +178,8 @@ def functions():
     openprogram = ['open program', 'open', 'program open', 'open a program', 'open an app', 'app open']
     weathercalls = ['weather', 'what is the weather', 'tell me the weather', 'find weather', 'whats the weather']
     generalsayings = ['hello', 'hi', 'what is your favorite color', 'why is the sky blue', 'do you like me']
-    dontinsultme = ['you suck', 'youre an idiot', 'youre stupid', 'you are dumb', 'screw you', 'die in a hole']
-    complimentme = ['You are great', 'thank you', 'thanks', 'good job', 'good bot', 'you are the best assistant']
+    dontinsultme = ['you suck', 'you are an idiot', 'you are stupid', 'you are dumb', 'screw you', 'die in a hole']
+    complimentme = ['you are great', 'thank you', 'thanks', 'good job', 'good bot', 'you are the best assistant']
     if str(answer.lower()) in searchweb:
         website()
     elif str(answer.lower()) in openprogram:
@@ -188,6 +192,8 @@ def functions():
         idontlikeinsults(answer)
     elif str(answer.lower()) in complimentme:
         ilikecompliments(answer)
+    else:
+        os.system(f"espeak 'i am sorry, I didnt get that, please ask again'")
 
 
 def generalresponse():
@@ -195,16 +201,16 @@ def generalresponse():
     response = responses.readlines()
     reputation = open('reputation.txt', 'r')
     reputationvalue = reputation.readlines()
-    returnrep = int(reputationvalue[0])
-    if returnrep == 1:
+    returnrep = int(reputationvalue[0].strip())
+    if returnrep == 10:
         y = random.randint(0, 5)
         responsefinal = response[y]
         os.system(responsefinal)
-    elif returnrep < 1:
+    elif returnrep < 10:
         y = random.randint(7, 12)
         responsefinal = response[y]
         os.system(responsefinal)
-    elif returnrep > 1:
+    elif returnrep > 10:
         y = random.randint(14, 19)
         responsefinal = response[y]
         os.system(responsefinal)
