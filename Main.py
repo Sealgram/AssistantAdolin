@@ -94,12 +94,22 @@ def idontlikeinsults(insult):
         name = namedoc[0]
     except IndexError:
         name = ''
+    try:
+        reputation = open('reputation.txt', 'w+')
+        rep = reputation.readlines()
+        currentrep = int(rep[0])
+    except IndexError:
+        currentrep = 1
     if insult == 'you suck':
         os.system(f"espeak 'you swallow, {name}'")
+        currentrep -= 1
     elif insult == 'youre an idiot' or insult == 'youre stupid' or insult == 'you are dumb':
         os.system(f"espeak 'I'm sure the same can be said about you, {name}'")
+        currentrep -= 1
     elif insult == 'screw you' or insult == 'die in a hole':
         os.system(f"espeak 'That was not very nice, {name}'")
+        currentrep -= 1
+    reputation.write(str(currentrep))
 
 
 def ilikecompliments(compliment):
@@ -109,22 +119,33 @@ def ilikecompliments(compliment):
         name = namedoc[0]
     except IndexError:
         name = ''
+    try:
+        reputation = open('reputation.txt', 'w+')
+        rep = reputation.readlines()
+        currentrep = int(rep[0])
+    except IndexError:
+        currentrep = 1
     if compliment == 'you are great':
         os.system(f"espeak 'so are you, {name}'")
+        currentrep += 1
     elif compliment == 'thank you' or compliment == 'thanks':
         y = random.randint(0, 2)
         thankresponses = [f"espeak'youre welcome, {name}'", f"espeak 'No, thank you'", f"espeak 'No problem, {name}"]
         os.system(thankresponses[y])
+        currentrep += 1
     elif compliment == 'good job':
         y = random.randint(0, 1)
         goodresponses = [f"espeak 'well, that is high praise, {name}'", f"espeak 'you too'"]
         os.system(goodresponses[y])
         if y == 1:
             os.system(f"espeak 'wait, I always do this. this is awkward.'")
+        currentrep += 1
     elif compliment == 'good bot':
         os.system(f"espeak 'do I get a treat now, {name}'")
+        currentrep += 1
     elif compliment == 'you are the best':
         os.system(f"espeak 'Thats a nice thing to say, thank you'")
+        currentrep += 1
 
 
 def weather():
@@ -282,5 +303,5 @@ def maininterface():
     root.mainloop()
 
 
-# startinterface()
+startinterface()
 maininterface()
