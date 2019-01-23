@@ -216,7 +216,6 @@ def generalresponse():
         os.system(responsefinal)
 
 
-
 def infopanel():
     class info(Frame):
         def __init__(self, master=None):
