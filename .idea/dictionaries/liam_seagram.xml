@@ -2,17 +2,22 @@
   <dictionary name="liam_seagram">
     <words>
       <w>adolin</w>
+      <w>api</w>
       <w>askbutton</w>
       <w>choiceprogram</w>
       <w>closewindow</w>
       <w>codsworth</w>
       <w>complimentme</w>
       <w>currentrep</w>
+      <w>dateandtime</w>
+      <w>datetimebutton</w>
       <w>didnt</w>
       <w>dontinsultme</w>
+      <w>dosent</w>
       <w>espeak</w>
       <w>facetime</w>
       <w>flappy</w>
+      <w>flipside</w>
       <w>generalresponse</w>
       <w>generalresponses</w>
       <w>generalsayings</w>
@@ -31,10 +36,14 @@
       <w>namebutton</w>
       <w>namedoc</w>
       <w>namerecord</w>
+      <w>nessisary</w>
+      <w>nodice</w>
       <w>noname</w>
       <w>openprogram</w>
+      <w>openweathermap</w>
       <w>pathsread</w>
       <w>photoshop</w>
+      <w>programbutton</w>
       <w>programchoice</w>
       <w>quicktime</w>
       <w>quitbutton</w>
@@ -47,8 +56,11 @@
       <w>startinterface</w>
       <w>thankresponses</w>
       <w>thats</w>
+      <w>timedate</w>
       <w>togglebutton</w>
+      <w>weatherbutton</w>
       <w>weathercalls</w>
+      <w>webbutton</w>
       <w>youre</w>
     </words>
   </dictionary>
